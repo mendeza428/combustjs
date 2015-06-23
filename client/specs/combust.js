@@ -55,17 +55,17 @@ var utils = {
 		password: "authPassword",
 		email: "authEmail"
 	}
-}
+};
 
 describe("Combust tests", function() {
 	before(function(done) {
 		done();
-	})
+	});
 
 	beforeEach(function(done) {
 		combustRef = utils.newCombust();
 		done();
-	})
+	});
 
 	after(function(done) {
 		db.connect(function(conn) {
@@ -73,7 +73,7 @@ describe("Combust tests", function() {
 				r.db('test').table('test').insert({path: null, _id: '/', msg:"this is the root node of the db"}).run(conn, done);
 			});
 		});
-	})
+	});
 
 	describe('Non-networking', function() {
 		var combustRef;
@@ -124,7 +124,7 @@ describe("Combust tests", function() {
 				combustRef.child('japan');
 				combustRef.constructPath().should.equal('/library/history/japan/');
 				done();
-			})
+			});
 		});
 	});
 	describe('networking', function() {		
